@@ -1,0 +1,135 @@
+<div class="container" style="">
+
+    <!-- Overlay stuff here -->
+    <div class="overlay">
+
+        <section id="overlaySection">
+            <div class="panel">
+                <span class="title">{{ popupTitle }}</span>
+                <button id="closeOverlay" ng-click="overlay.close()" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span></button>
+            </div>
+
+            <div class="panel-content">
+
+                <div class="chooseAction">
+                    <button type="button" ng-click="overlay.addEvent()" class="btn btn-success btn-lg">
+                        <span class="glyphicon glyphicon-plus"></span> Add a new event
+                    </button>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <button type="button" ng-click="overlay.dailyEvents()" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-th-list"></span> View scheduled events
+                    </button>
+                </div>
+
+                <div class="addNewEvent">
+                    <div ng-show="newEvent.showSuccess" class="alert alert-success" role="alert">{{newEvent.success}}</div>
+                    <div ng-show="newEvent.showError" class="alert alert-danger" role="alert">{{newEvent.error}}</div>
+
+                    <form ng-submit="overlay.validateForm(event)">
+                        <div class="form-group">
+                            <label for="eventTitle">Title</label>
+                            <input type="text" name="title" ng-model="event.title" class="form-control" id="eventTitle" placeholder="Event title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDescription">Description</label>
+                            <textarea id="eventDescription" name="description" ng-model="event.description" placeholder="description of the event here" class="form-control" rows="5" required></textarea>
+                        </div>
+                        <input type="reset" id="resetForm" />
+                        <button type="submit" class="btn btn-block btn-success">Add Event</button>
+                    </form>
+                </div>
+
+                <div class="showEvents">
+                    <div ng-show="showEventsEmpty" class="alert alert-info" role="alert">No scheduled event</div>
+                    <div class="list-group">
+
+                        <a ng-repeat="event in Events" id="eventItem-{{$index}}" class="list-group-item">
+                            <span class="badge">{{event.date | date }}</span>
+                            <h4 class="list-group-item-heading">{{event.title}}</h4>
+                            <p class="list-group-item-text">{{event.description}}</p>
+
+                            <br/>
+
+                            <button type="button" class="btn btn-success btn-sm">save</button>
+
+                            <div class="pull-right " role="group" aria-label="...">
+                                <button type="button" ng-click="overlay.editEvent($event,event)" data-key="{{$index}}" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span></button>
+                                <button type="button" ng-click="overlay.removeEvent(event,$index)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <div id="calendarHolder" class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+            <div class="panel panel-primary" style="width: 555px !important;">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">Events Calendar</h3>
+                </div>
+
+                <div class="panel-body">
+                    <!-- Calendar Controls here -->
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-3">
+                            <button type="button" ng-click="calendar.previous(today.date)" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            </button>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-6">
+                            <button type="button" ng-click="overlay.monthlyEvents(today.date)" class="btn btn-default btn-sm btn-block active">{{ today.month | uppercase }} &nbsp; {{ today.year }}</button>
+                        </div>
+
+                        <div class="clearfix visible-xs-block"></div>
+
+                        <div class="col-xs-6 col-sm-3 text-right">
+                            <button type="button" ng-click="calendar.next(today.date)" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div> <!-- End of calendar controls -->
+
+                    <br>
+
+                    <!-- Calendar days -->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="well well-sm">
+                                <ul class="weekdays">
+                                    <li class="text-danger">sun</li>
+                                    <li>mon</li>
+                                    <li>tue</li>
+                                    <li>wed</li>
+                                    <li>thu</li>
+                                    <li>fri</li>
+                                    <li class="text-warning">sat</li>
+                                </ul>
+
+                                <ul class="days">
+                                    <li ng-repeat="day in days">
+                                        <button title="{{day.title}}" ng-click="overlay.prompt(day.date)" class="{{ day.visible }} btn {{day.eventClass}} btn-lg {{ day.active }}">
+                                            {{ day.day }}
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

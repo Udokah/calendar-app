@@ -1,0 +1,30 @@
+{
+  "name": "CalendarApp",
+  "version": "1.0.0",
+  "homepage": "https://github.com/andela-unkwocha/calendar-app",
+  "authors": [
+    "Nkwocha Udo"
+  ],
+  "description": "Events calendar application",
+  "main": "index.html",
+  "keywords": [
+    "Calendar"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "~1.3.14",
+    "animate.css": "~3.2.3",
+    "bootstrap": "~3.3.2",
+    "angular-ui-router": "~0.2.13",
+    "angular": "~1.3.14",
+    "jquery": "~2.1.3"
+  }
+}

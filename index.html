@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html ng-app="calendarApp">
+<head>
+    <title>Calender App</title>
+    <meta charset="utf-8">
+    <meta name="description" content="A calendar app for events" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap-theme.css" />
+
+    <link rel="stylesheet" href="app/css/style.css" />
+
+    <!--Animation-->
+    <link rel="stylesheet" href="app/bower_components/animate.css/animate.min.css" />
+
+    <!-- Favourite icon -->
+    <link href="app/img/andela.png" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+
+<div class="wrapper" ui-view>
+
+</div>
+
+<!-- Javascript Here -->
+
+<!-- Dependencies -->
+<script src="app/bower_components/jquery/dist/jquery.js"></script>
+<script src="app/bower_components/angular/angular.js"></script>
+<script src="app/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="app/bower_components/angular-animate/angular-animate.js"></script>
+
+<!-- App Source -->
+<script src="app/js/app.js"></script>
+<script src="app/js/controllers.js"></script>
+<script src="app/js/events/services.js"></script>
+</body>
+</html>
