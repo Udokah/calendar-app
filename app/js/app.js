@@ -1,5 +1,4 @@
 var app = angular.module('calendarApp', [
-    'ngAnimate',
     'ui.router',
     'calendarApp.controllers',
     'calendarApp.events.services',
