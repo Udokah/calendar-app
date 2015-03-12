@@ -7,6 +7,7 @@ controllers.controller('HomeController', ['$scope','eventService','calendarAppCo
     var $addEvent = $('.addNewEvent');
     var $showEvents = $('.showEvents');
     var $chooseActions = $('.chooseAction');
+    var $calendarHolder = $('#calendarHolder');
 
     var months = calendarAppConfig.months;
     var days = calendarAppConfig.days;
@@ -251,6 +252,10 @@ controllers.controller('HomeController', ['$scope','eventService','calendarAppCo
             }
         }
     };
+
+    $scope.$on('$viewContentLoaded', function(){
+        $calendarHolder.addClass('animated zoomIn').show();
+    });
 
     $scope.calendar.load(new Date());
 
