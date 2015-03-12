@@ -37,9 +37,10 @@
     width: 54px !important;
 }
 
-.calendarHolder{
+#calendarHolder{
     position: relative;
     z-index: 100;
+    display: none;
 }
 
 .overlay{
