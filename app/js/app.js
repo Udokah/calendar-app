@@ -2,7 +2,8 @@ var app = angular.module('calendarApp', [
     'ngAnimate',
     'ui.router',
     'calendarApp.controllers',
-    'calendarApp.events.services'
+    'calendarApp.events.services',
+    'calendarApp.directives'
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider){
